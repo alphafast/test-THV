@@ -1,15 +1,14 @@
 const stringInput = '(tavi(h(ia)v)t)'
 
-const revwersRecur = (src) => {
+const reverseAndReplaceSource = (src) => {
     let sub = new RegExp(/\(([^()]*)\)/).exec(src)[1]
     sub = sub.split('').reverse().join('')
-    console.log(sub)
     return src.replace(/\(([^()]*\))/, sub)
 }
 
 const reverseParentheses = (src) => {
     if (src.includes('(')) {
-        return reverseParentheses(revwersRecur(src))
+        return reverseParentheses(reverseAndReplaceSource(src))
     }
     return src
 }
